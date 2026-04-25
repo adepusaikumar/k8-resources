@@ -1,4 +1,8 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: 
+  name: nginx-config
+data:
+  topic: kubernetes
+  environment: development
+  project: roboshop

@@ -5,4 +5,8 @@ metadata:
 spec:
   containers:
     - name: nginx
-      image: 
+      image: nginx
+      envFrom:
+        - configMapRef:
+            name: nginx-config
+            

@@ -1,11 +1,11 @@
 apiVersion: v1
-kind: Service
+kind: Service # Used for pod to pod communication within the cluster. It provides a stable IP address and DNS name for a set of pods, also load balances traffic across those pods.
 metadata:
   name: nginx-service
 spec:
   # Default service type is ClusterIP, which is used for internal communication within the cluster even if we do not specify it.
   selector:
-    # labels are used as selectors
+    # labels are used as selector to identify the pods that this service will route traffic to. The service will forward traffic to any pod that has these labels.
     project: roboshop
     component: frontend
     environment: dev

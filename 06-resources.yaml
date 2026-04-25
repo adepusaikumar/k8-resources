@@ -1,17 +1,17 @@
 apiVersion: v1
 kind: Pod
-metadata: 
+metadata:
   name: nginx-resources-test
 spec:
   containers:
-  - name: nginx
-    image: nginx
-    resources:  
-      # Soft limit -> this much resource is allocated and blocked for this pod
-      requests:
-        memory: "64Mi" # RAM
-        cpu: "100m" # CPU
-      # Hard limit -> Max limit at we can allow for this container
-      limits:
-        memory: "128Mi"
-        cpu: "200m"
+    - name: nginx
+      image: nginx
+      resources:
+        # Soft limit -> this much resource is allocated and blocked for this pod
+        requests:
+          memory: "64Mi" # RAM
+          cpu: "100m" # CPU
+        # Hard limit -> Max limit at we can allow for this container
+        limits:
+          memory: "128Mi"
+          cpu: "200m"

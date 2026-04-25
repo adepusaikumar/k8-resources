@@ -3,9 +3,8 @@ kind: Service # Used for pod to pod communication within the cluster. It provide
 metadata:
   name: nginx-service
 spec:
-  # Default service type is ClusterIP, which is used for internal communication within the cluster even if we do not specify it.
-  selector:
-    # labels are used as selector to identify the pods that this service will route traffic to. The service will forward traffic to any pod that has these labels.
+  # Default is ClusterIP.
+  selector: # labels are used as selector to identify the pods that this service will route traffic to. The service will forward traffic to any pod that has these labels.
     project: roboshop
     component: frontend
     environment: dev

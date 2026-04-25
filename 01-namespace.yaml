@@ -4,3 +4,6 @@ metadata:
   name: roboshop
   labels:
     project: roboshop
+    team: devops
+    environment: dev
+    purpose: poc

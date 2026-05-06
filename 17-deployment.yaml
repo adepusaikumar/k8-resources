@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: nginx
+  # These lables are for deployment 
+  labels:
+    project: roboshop
+    purpose: rs-demo
+    tier: frontend
+    component: frontend
+  annotations:
+    kubernetes.io/change-cause: "Moving to 1.29.7"
+spec:
+  selector:
+    matchLabels:
+      project: roboshop
+      purpose: rs-demo
+      tier: frontend
+      component: frontend
+  template:
+    
+  
+    

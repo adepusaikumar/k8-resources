@@ -2,6 +2,8 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: vol-test-pod
+  labels:
+    app: vol-test
 spec:
   containers:
     - name: nginx-test
@@ -20,6 +22,23 @@ spec:
     - name: nginx-logs
       emptyDir:
         sizeLimit: 500Mi
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-logs-service
+spec:
+  type: NodePort
+  selector:
+    app: vol-test
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30080
+
+
+
 
 
 

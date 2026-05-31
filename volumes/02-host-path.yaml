@@ -10,9 +10,9 @@ spec:
       image: nginx
       volumeMounts:
         - name: vol-hostpath
-          mountPath: /var/log/nginx
+          mountPath: /var/log
+          readOnly: true
   volumes:
     - name: vol-hostpath
       hostPath:
-        path: /var/log/nginx
-        type: DirectoryOrCreate
+        path: /var/log

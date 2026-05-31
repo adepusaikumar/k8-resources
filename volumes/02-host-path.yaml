@@ -15,3 +15,4 @@ spec:
     - name: vol-hostpath
       hostPath:
         path: /var/log/nginx
+        type: DirectoryOrCreate

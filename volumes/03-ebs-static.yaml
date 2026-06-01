@@ -43,7 +43,7 @@ spec:
     image: nginx
     volumeMounts:
     - name: html-data # Name must be same as defined in volumes section
-      mountPath: /usr/share/nginx # This is the path where we want to mount this volume
+      mountPath: /usr/share/nginx/html # This is the path where we want to mount this volume
   volumes:
   - name: html-data # we can give any name to this volume
     persistentVolumeClaim:

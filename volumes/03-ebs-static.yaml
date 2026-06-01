@@ -23,9 +23,28 @@ metadata:
   name: ebs-claim
 spec:
   storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
-  volumeName: ebs-pv
+  volumeName: ebs-pv # This is PV name which we want to bind with this PVC
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: 5Gi
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app
+spec:
+  nodeSelector:
+    topology.kubernetes.io/zone: us-east-1a
+  containers:
+  - name: nginx
+    image: nginx
+    volumeMounts:
+    - name: html-data # Name must be same as defined in volumes section
+      mountPath: /usr/share/nginx/html # This is the path where we want to mount this volume
+  volumes:
+  - name: html-data # we can give any name to this volume
+    persistentVolumeClaim:
+      claimName: ebs-claim  # This is PVC name which we want to use in this POD

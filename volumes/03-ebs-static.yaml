@@ -14,3 +14,18 @@ spec:
     driver: ebs.csi.aws.com
     fsType: ext4
     volumeHandle: vol-01e2e420fbcee1c95
+  # persistentVolumeReclaimPolicy: Retain
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ebs-claim
+spec:
+  storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
+  volumeName: test-pv
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi

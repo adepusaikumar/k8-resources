@@ -11,7 +11,6 @@ spec:
       volumeMounts:
         - name: vol-hostpath
           mountPath: /var/log
-          readOnly: true
   volumes:
     - name: vol-hostpath
       hostPath:

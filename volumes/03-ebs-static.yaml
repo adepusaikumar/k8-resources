@@ -1,0 +1,16 @@
+# EBS-VOLUME-CREATION -> EBS DRIVER INSTALLATION -> PV -> PVC -> POD
+# Driver installation: https://github.com/kubernetes-sigs/aws-ebs-csi-driver/blob/master/docs/install.md
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: test-pv
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 5Gi
+  csi:
+    driver: ebs.csi.aws.com
+    fsType: ext4
+    volumeHandle: vol-01e2e420fbcee1c95
